@@ -10,9 +10,6 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assumptions.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.DynamicTest.dynamicTest;
-import static org.junit.jupiter.api.condition.JRE.JAVA_11;
-import static org.junit.jupiter.api.condition.JRE.JAVA_8;
 
 import java.util.Random;
 
