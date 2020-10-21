@@ -1,5 +1,8 @@
 # Ignore everything
 .gitignore
+.*/
+.*
+build/
 
 # But not Java files...
 !.gitignore

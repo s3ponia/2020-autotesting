@@ -1,21 +1,28 @@
 plugins {
     id 'java'
-    id 'idea'
 }
+
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation('org.apache.commons:commons-lang3:3.11')
-    testImplementation(platform('org.junit:junit-bom:5.7.0'))
-    testImplementation('org.junit.jupiter:junit-jupiter')
-}
-
 test {
     useJUnitPlatform()
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
+}
+
+test.doFirst{
+    def classpathRoots = project.sourceSets.test.runtimeClasspath.files
+    systemProperty 'webdriver.chrome.driver', classpathRoots.find { it.name.startsWith('chromedriver') }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    // https://mvnrepository.com/artifact/com.codeborne/selenide
+    testCompile 'com.codeborne:selenide:5.15.0'
 }
