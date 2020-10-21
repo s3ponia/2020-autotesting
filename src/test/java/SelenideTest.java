@@ -11,8 +11,6 @@ import static com.codeborne.selenide.CollectionCondition.allMatch;
 import static com.codeborne.selenide.CollectionCondition.anyMatch;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.focused;
-import static com.codeborne.selenide.Condition.have;
-import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.selected;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
