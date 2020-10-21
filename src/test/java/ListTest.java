@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -25,16 +26,16 @@ public class ListTest {
     @DisplayName("Check source size")
     @Test
     void countTest() {
-        assertEquals(source.size(), 10);
+        assertEquals(source.size(), 100);
     }
 
     @DisplayName("Random test")
     @Test
     void randomTest() {
-        bool test = false;
+        boolean test = false;
         for (int i = 0; i < 100; i++) {
             int r = rand.nextInt();
-            if (r == source.size()) {
+            if (r > source.size()) {
                 test = true;
             }
         }

@@ -22,15 +22,14 @@ public class IntegerListTest {
     void init() {
         source = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            source.add(rand.nextInt());
+            source.add(rand.nextInt() & Integer.MAX_VALUE);
         }
     }
 
     @Test
     void assumptionTest() {
-        assumeTrue(source.get(0) > 0);
-        assumeFalse(source.get(10) < 125);
-        assertFalse((source.get(0) + source.get(source.size() - 1)) / 2 - 10 < 251);
+        assumeTrue(source.get(10) >= 0);
+        assertTrue((source.get(0) + source.get(source.size() - 1)) / source.get(10) < 251);
     }
 
     @RepeatedTest(100)
