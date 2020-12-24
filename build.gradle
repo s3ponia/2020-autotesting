@@ -24,7 +24,7 @@ apply plugin: 'net.serenity-bdd.aggregator'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-ext {
+ex t {
     slf4jVersion = '1.7.7'
     serenityCoreVersion = '2.3.9'
     junitVersion = '4.13'
