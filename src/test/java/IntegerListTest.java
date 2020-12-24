@@ -32,7 +32,7 @@ public class IntegerListTest {
         assertTrue((source.get(0) + source.get(source.size() - 1)) / source.get(10) < 251);
     }
 
-    @RepeatedTest(100)
+    @RepeatedTest(10)
     void repeatTest() {
         assertTrue(source.stream().filter(a -> a > 0).count() > 0);
     }

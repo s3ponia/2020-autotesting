@@ -44,26 +44,6 @@ public class SelenideTest {
         okPage.getFeed().shouldBe(sizeGreaterThan(0));
     }
 
-    @DisplayName("Writing and reading notes")
-    @Test
-    void testFeedWriteNotes() {
-        final SelenideElement noteBlock = okPage.getNoteBlockOnFeed().shouldBe(visible);
-        noteBlock.click();
-        noteBlock.find(By.className("input_placeholder")).shouldBe(focused, selected);
-        final SelenideElement input = okPage.getNoteInput().waitUntil(visible, 1000);
-        input.click();
-        input.append("Hi");
-        final SelenideElement button = okPage.getPostingButton().shouldBe(visible);
-        button.click();
-        open("https://ok.ru/feed");
-        okPage.reload();
-        final ElementsCollection feed = okPage.getFeed();
-        feed.shouldBe(allMatch("All should be visible",
-                a -> $(a).is(visible))).shouldBe(sizeGreaterThan(0));
-        feed.shouldBe(anyMatch("Find inserted note",
-                a -> $(a).$(By.xpath(".//*[@class='media-text_a']/..")).is(text("Hi"))));
-    }
-
     @DisplayName("Navigational bar's existance")
     @Test
     void testNavigationBarExistance() {
