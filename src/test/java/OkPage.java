@@ -19,9 +19,9 @@ public class OkPage {
     public void login() throws InterruptedException {
         open("https://ok.ru/");
 
-        final var loginLine =
+        final SelenideElement loginLine =
                 $(By.xpath(".//*[@type='text']")).append(login);
-        final var passwordLine =
+        final SelenideElement passwordLine =
                 $(By.xpath(".//*[@type='password']")).append(password);
         $(By.xpath(".//*[@type='submit']")).pressEnter();
     }

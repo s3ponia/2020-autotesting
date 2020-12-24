@@ -44,7 +44,7 @@ public class ListTest {
     }
 
     @DisplayName("Always failed")
-    @RepeatedTest(100)
+    @Test
     void checkTest() {
         assertAll(() -> assertTrue(false),
                 () -> assertTrue(source.get(0).equals(0)),

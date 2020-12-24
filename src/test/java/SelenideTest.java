@@ -1,3 +1,5 @@
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -37,7 +39,7 @@ public class SelenideTest {
     }
 
     @DisplayName("Feed's existance test")
-    @RepeatedTest(20)
+    @Test
     void testFeedExistance() {
         okPage.getFeed().shouldBe(sizeGreaterThan(0));
     }
@@ -45,17 +47,17 @@ public class SelenideTest {
     @DisplayName("Writing and reading notes")
     @Test
     void testFeedWriteNotes() {
-        final var noteBlock = okPage.getNoteBlockOnFeed().shouldBe(visible);
+        final SelenideElement noteBlock = okPage.getNoteBlockOnFeed().shouldBe(visible);
         noteBlock.click();
         noteBlock.find(By.className("input_placeholder")).shouldBe(focused, selected);
-        final var input = okPage.getNoteInput().waitUntil(visible, 1000);
+        final SelenideElement input = okPage.getNoteInput().waitUntil(visible, 1000);
         input.click();
         input.append("Hi");
-        final var button = okPage.getPostingButton().shouldBe(visible);
+        final SelenideElement button = okPage.getPostingButton().shouldBe(visible);
         button.click();
         open("https://ok.ru/feed");
         okPage.reload();
-        final var feed = okPage.getFeed();
+        final ElementsCollection feed = okPage.getFeed();
         feed.shouldBe(allMatch("All should be visible",
                 a -> $(a).is(visible))).shouldBe(sizeGreaterThan(0));
         feed.shouldBe(anyMatch("Find inserted note",
@@ -63,7 +65,7 @@ public class SelenideTest {
     }
 
     @DisplayName("Navigational bar's existance")
-    @RepeatedTest(20)
+    @Test
     void testNavigationBarExistance() {
         okPage.getNavigationalBar().shouldBe(visible);
         okPage.getNavigationalBar().$(By.className("nav-side")).shouldBe(visible);
@@ -72,17 +74,17 @@ public class SelenideTest {
     }
 
     @DisplayName("Nav bar click")
-    @RepeatedTest(10)
+    @Test
     void testNavBar() {
         for (int i = 0; i < 16; i++) {
-            final var navBar = okPage.getNavigationalBar().
+            final ElementsCollection navBar = okPage.getNavigationalBar().
                     $(By.xpath(".//div[@class='nav-side __navigation __user-main']"))
                     .$$(By.xpath("./*")).shouldBe(sizeGreaterThan(0));
-            final var section = navBar.get(i);
+            final SelenideElement section = navBar.get(i);
             section.shouldBe(visible);
-            final var prevUrl = WebDriverRunner.url();
+            final String prevUrl = WebDriverRunner.url();
             section.click();
-            final var currUrl = WebDriverRunner.url();
+            final String currUrl = WebDriverRunner.url();
             if (prevUrl.equals("https://ok.ru/feed")) {
                 assertEquals(currUrl, "https://ok.ru/feed");
             } else {

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="serentity.ok.friendfind.FriendFindTest" skipped="0" tests="1" time="12.28" timestamp="2020-12-24 05:32:11"><testcase classname="serentity.ok.friendfind.FriendFindTest" name="Test searching"><failure type="java.lang.AssertionError"/><system-err>null&#13;
+serentity.ok.friendfind.steps.FriendFindSteps.findPeople(FriendFindSteps.java:21)&#13;
+serentity.ok.friendfind.FriendFindTest.testSearching(FriendFindTest.java:18)&#13;
+</system-err></testcase></testsuite>
