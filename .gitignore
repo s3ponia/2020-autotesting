@@ -1,8 +1,10 @@
 # Ignore everything
 .gitignore
+*/.DS_Store
 .*/
 .*
 build/
+target/
 
 # But not Java files...
 !.gitignore
