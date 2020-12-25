@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class BookmarksNavBar {
@@ -20,6 +21,7 @@ public class BookmarksNavBar {
             element.waitUntil(Condition.visible, 2000);
             if (name.equals(element.getText())) {
                 element.click();
+                $(By.className("__ac")).waitUntil(Condition.text(name), 2000);
                 return;
             }
         }
@@ -32,7 +34,7 @@ public class BookmarksNavBar {
     }
 
     public void clickPeopleBookmarks() {
-        clickBookmarks("Фотографии");
+        clickBookmarks("Люди");
     }
 
     public void clickGroupsBookmarks() {

@@ -16,16 +16,16 @@ public class Bookmark {
     }
 
     public void delete() {
-        note.$(stubLocator).shouldNotBe(visible);
+        note.$(stubLocator).shouldNot(visible);
         note.$(starLocator)
-                .shouldBe(exist)
+                .should(exist)
                 .click();
     }
 
     public void unDelete() {
-        note.$(stubLocator).shouldBe(visible);
+        note.$(stubLocator).should(visible);
         note.$(starLocator)
-                .shouldBe(exist)
+                .should(exist)
                 .click();
     }
 }

@@ -1,11 +1,13 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import elements.Bookmark;
 import org.openqa.selenium.By;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class PhotosBookmarksPage implements BookmarksPage {

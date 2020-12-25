@@ -16,6 +16,11 @@ public class BookmarksTest extends BaseTest {
     }
 
     @Test
+    public void addBookmarks() {
+
+    }
+
+    @Test
     public void checkBookmarksDeleteUnDelete() {
         final var bookmarkNavBar = feedPage.bookmarksNavigation();
 

@@ -1,5 +1,7 @@
 package pages;
 
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
 import elements.Bookmark;
 import org.openqa.selenium.By;
 
@@ -7,6 +9,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class AllBookmarksPage implements BookmarksPage {
@@ -15,8 +18,10 @@ public class AllBookmarksPage implements BookmarksPage {
 
     @Override
     public Collection<Bookmark> bookmarks() {
-        final var peoplesGroups = $$(peopleGroupsLocator).stream();
-        final var photos= $$(photosLocator).stream();
+        final var peoplesGroups = $$(peopleGroupsLocator)
+                .stream();
+        final var photos = $$(photosLocator)
+                .stream();
 
         return Stream.concat(peoplesGroups, photos).map(Bookmark::new).collect(Collectors.toList());
     }
