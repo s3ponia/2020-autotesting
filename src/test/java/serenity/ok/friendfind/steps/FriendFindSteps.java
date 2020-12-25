@@ -26,7 +26,7 @@ public class FriendFindSteps extends BaseSteps {
         feedPage().findPeople(request);
     }
 
-    @Step("#actor find bigger than {0}")
+    @Step("#actor's list should be bigger than {0}")
     public void findPeople(final int min,
                            final String name) {
         assertTrue(peopleFindPage().found().stream().filter(a -> a.name().trim().equals(name)).count() >= min);
