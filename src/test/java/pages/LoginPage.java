@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class LoginPage {
     private final By loginLocator = By.xpath(".//*[@type='text']");
