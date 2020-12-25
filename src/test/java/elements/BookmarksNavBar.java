@@ -6,14 +6,14 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-public class NotesNavBar {
+public class BookmarksNavBar {
     private final By navBarElementsLocator = By.className("nav-side_tx");
 
-    private void clickNotes(final String name) {
+    private void clickBookmarks(final String name) {
         final var elements = $$(navBarElementsLocator)
                 .shouldHave(CollectionCondition.sizeGreaterThan(0));
 
-        String notesPageName = null;
+        String BookmarksPageName = null;
 
         for (final var element :
                 elements) {
@@ -27,19 +27,19 @@ public class NotesNavBar {
         throw new IllegalStateException("Can't find " + name);
     }
 
-    public void clickAllNotes() {
-        clickNotes("Все закладки");
+    public void clickAllBookmarks() {
+        clickBookmarks("Все закладки");
     }
 
-    public void clickPeopleNotes() {
-        clickNotes("Фотографии");
+    public void clickPeopleBookmarks() {
+        clickBookmarks("Фотографии");
     }
 
-    public void clickGroupsNotes() {
-        clickNotes("Группы");
+    public void clickGroupsBookmarks() {
+        clickBookmarks("Группы");
     }
 
-    public void clickPhotosNotes() {
-        clickNotes("Фотографии");
+    public void clickPhotosBookmarks() {
+        clickBookmarks("Фотографии");
     }
 }

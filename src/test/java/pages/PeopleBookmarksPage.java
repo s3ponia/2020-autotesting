@@ -1,6 +1,6 @@
 package pages;
 
-import elements.Note;
+import elements.Bookmark;
 import org.openqa.selenium.By;
 
 import java.util.Collection;
@@ -8,11 +8,11 @@ import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-public class PeopleNotesPage implements NotesPage {
+public class PeopleBookmarksPage implements BookmarksPage {
     private final By peopleLocator = By.className("cardsList_li");
 
     @Override
-    public Collection<Note> notes() {
-        return $$(peopleLocator).stream().map(Note::new).collect(Collectors.toList());
+    public Collection<Bookmark> bookmarks() {
+        return $$(peopleLocator).stream().map(Bookmark::new).collect(Collectors.toList());
     }
 }

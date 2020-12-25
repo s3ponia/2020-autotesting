@@ -6,12 +6,12 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 
-public class Note {
+public class Bookmark {
     private final SelenideElement note;
     private final By starLocator = By.className("bk_star");
     private final By stubLocator = By.className("bk_stub");
 
-    public Note(final SelenideElement note) {
+    public Bookmark(final SelenideElement note) {
         this.note = note;
     }
 
