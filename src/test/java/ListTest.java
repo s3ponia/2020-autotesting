@@ -43,14 +43,6 @@ public class ListTest {
         assertTrue(test);
     }
 
-    @DisplayName("Always failed")
-    @RepeatedTest(100)
-    void checkTest() {
-        assertAll(() -> assertTrue(false),
-                () -> assertTrue(source.get(0).equals(0)),
-                () -> assertEquals(source.get(source.size() - 1) - source.get(0), source.size()));
-    }
-
     @AfterAll
     static void done() {
         source.clear();
